@@ -9,7 +9,6 @@ namespace TP_FInal_Resumenes.Models
     {
         public int IdEscuela { get; set; }
         public string NombreEscuela { get; set; }
-
         public Escuela()
         {
             IdEscuela = -1;

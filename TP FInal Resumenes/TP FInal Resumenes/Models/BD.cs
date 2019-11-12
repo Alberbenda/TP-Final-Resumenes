@@ -20,5 +20,14 @@ namespace TP_FInal_Resumenes.Models
             SQL.Close();
             return SQL;
         }
+        public static bool ValidarLoginUsuario (Usuarios us)
+        {
+            bool valido = false;
+            // falta completar cuando este hecha la home
+
+
+
+            return valido;
+        }
     }
 }

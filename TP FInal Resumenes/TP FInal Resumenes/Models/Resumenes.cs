@@ -30,5 +30,16 @@ namespace TP_FInal_Resumenes.Models
             NombreImagen = "";
             FkEscuela = 0;
         }
+        public Resumenes (int id, string nom, int fkmat, int fkua, float puntu, int ano, string nomimg,int fkesc)
+        {
+            IdResumen = id;
+            Nombre = nom;
+            FkMateria = fkmat;
+            FkUsuario = fkua;
+            Puntuacion = puntu;
+            Ano = ano;
+            NombreImagen = nomimg;
+            FkEscuela = fkesc;
+        }
     }
 }
