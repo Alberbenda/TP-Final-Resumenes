@@ -1,0 +1,17 @@
+﻿@using TP_FInal_Resumenes.Models
+@model Usuarios
+@{
+    ViewBag.Title = "CrearCuenta";
+}
+<h2>CrearCuenta</h2>
+@using (Html.BeginForm("ValidarCrearUsuario", "BackOffice", FormMethod.Post))
+{
+    <p>Username:</p> @Html.TextBoxFor(model => model.Username) @Html.ValidationMessageFor(model => model.Username) <br />
+    <p>Contraseña:</p> @Html.PasswordFor(model => model.Contrasena) @Html.ValidationMessageFor(model => model.Contrasena) <br />
+    <p>Contra2:</p> @Html.PasswordFor(model => model.Contra2) @Html.ValidationMessageFor(model => model.Contra2) <br />
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) @Html.ValidationMessageFor(model => model.Nombre) <br />
+    <p>Apellido:</p> @Html.TextBoxFor(model => model.Apellido) @Html.ValidationMessageFor(model => model.Apellido) <br />
+    <p>Mail:</p> @Html.TextBoxFor(model => model.Mail) @Html.ValidationMessageFor(model => model.Mail) <br />
+    <input type="submit" value="Aceptar" />
+}
+

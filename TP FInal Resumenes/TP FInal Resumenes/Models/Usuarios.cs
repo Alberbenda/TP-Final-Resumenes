@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 
 namespace TP_FInal_Resumenes.Models
-{ 
+{
     public class Usuarios
     {
         public int IdUsuario { get; set; }
@@ -14,6 +14,8 @@ namespace TP_FInal_Resumenes.Models
         [Required(ErrorMessage = "Ingresa una contraseña")]
         [StringLength(15, MinimumLength = 6, ErrorMessage = "La contraseña debe tener entre 6 y 15 caracteres")]
         public string Contrasena { get; set; }
+        [Compare("Contrasena",ErrorMessage ="Las contraseñas no coinciden, por favor ingreselas de vuelta")]
+        public string Contra2{get; set;}
         [Required(ErrorMessage = "Ingrese su Nombre")]
         public string Nombre { get; set; }
         [Required(ErrorMessage = "Ingresa su Apellido")]
