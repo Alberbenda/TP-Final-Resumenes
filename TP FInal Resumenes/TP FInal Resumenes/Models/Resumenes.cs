@@ -15,7 +15,7 @@ namespace TP_FInal_Resumenes.Models
         public int FkUsuario { get; set; }
         public float Puntuacion { get; set; }
         public int Ano { get; set; }
-        public HttpApplicationStateBase;
+        public HttpApplicationStateBase Imagen { get; set; }
         public string NombreImagen { get; set; }
         public int FkEscuela { get; set; }
 
