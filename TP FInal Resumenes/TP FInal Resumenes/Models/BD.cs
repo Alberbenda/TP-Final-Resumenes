@@ -84,5 +84,15 @@ namespace TP_FInal_Resumenes.Models
             SqlDataReader dataReader = command.ExecuteReader();
             Desconectar();
         }
+
+        public static void InsertarUsuario(Usuarios usu)
+        {
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "INSERT into Usuarios (Username, Contrasena , Nombre , Apellido ,Mail,Admin) values ('" + usu.Username + "','" + usu.Contrasena + "','" + usu.Nombre + "','" + usu.Apellido + "','" + usu.Mail + "'," + usu.Admin + ")"; //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            Desconectar();
+        }
     }
 }
