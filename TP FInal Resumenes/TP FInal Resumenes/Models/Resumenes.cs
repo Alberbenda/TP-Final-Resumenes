@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace TP_FInal_Resumenes.Models
 {
@@ -13,9 +13,9 @@ namespace TP_FInal_Resumenes.Models
         public string Nombre { get; set; }
         public int FkMateria { get; set; }
         public int FkUsuario { get; set; }
-        public float Puntuacion { get; set; }
+        public double Puntuacion { get; set; }
         public int Ano { get; set; }
-        public System.Web.HttpPostedFileBase Imagen { get; set; }
+        public HttpApplicationStateBase Imagen { get; set; }
         public string NombreImagen { get; set; }
         public int FkEscuela { get; set; }
 
@@ -29,6 +29,17 @@ namespace TP_FInal_Resumenes.Models
             Ano = 0;
             NombreImagen = "";
             FkEscuela = 0;
+        }
+        public Resumenes (int id, string nom, int fkmat, int fkua, double puntu, int ano, string nomimg,int fkesc)
+        {
+            IdResumen = id;
+            Nombre = nom;
+            FkMateria = fkmat;
+            FkUsuario = fkua;
+            Puntuacion = puntu;
+            Ano = ano;
+            NombreImagen = nomimg;
+            FkEscuela = fkesc;
         }
     }
 }

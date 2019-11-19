@@ -15,7 +15,7 @@ namespace TP_FInal_Resumenes.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "page.";
+            ViewBag.Message = "page";
 
             return View();
         }
