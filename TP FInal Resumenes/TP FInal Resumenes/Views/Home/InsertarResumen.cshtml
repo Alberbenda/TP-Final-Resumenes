@@ -1,0 +1,16 @@
+﻿@using TP_FInal_Resumenes.Models
+@model Resumenes
+@{
+    ViewBag.Title = "InsertarResumen";
+}
+
+<h2>InsertarResumen</h2>
+@using (Html.BeginForm("InsertarResumen", "Home", FormMethod.Post))
+{
+    <p>Nombre :</p> @Html.TextBoxFor(model => model.Nombre) @Html.ValidationMessageFor(model => model.Nombre) <br />
+    <p>Materia:</p>@Html.DropDownListFor(model => model.FkMateria, new SelectList(ViewBag.ListaMaterias, "IdMateria", "NombreMateria"))<br />
+    <p>Escuela:</p>@Html.DropDownListFor(model => model.FkEscuela, new SelectList(ViewBag.ListaEscuelas, "IdEscuela", "NombreEscuela"))
+    <p>Año:</p>@Html.TextBoxFor(model => model.Ano) @Html.ValidationMessageFor(model => model.Ano)<br />
+    <p>Archivo:</p>@Html.TextBoxFor(model => model.Archivo, new { type = "file" })<br />
+
+}

@@ -14,12 +14,15 @@ namespace TP_FInal_Resumenes.Controllers
         {
             return View();
         }
-        public ActionResult ValidarLoginUsuario (Usuarios user)
+
+        public ActionResult ValidarLoginUsuario(Usuarios usuario)
         {
-            if (ModelState.IsValid)// falta completar la clase BD cdo este hecha la home
+            string username = usuario.Username;
+            string pass = usuario.Contrasena;
+            if (ModelState.IsValid)
             {
-                bool valido = BD.ValidarLoginUsuario(user);
-                if (valido == true)
+                Usuarios usu = BD.ValidarLoginUsuario(username, pass);
+                if (usu.IdUsuario != -1)
                 {
                     return View("Index");
                 }
@@ -33,24 +36,13 @@ namespace TP_FInal_Resumenes.Controllers
                 return View("Login");
             }
         }
-        public ActionResult ValidarCrearUsuario(Usuarios user)
+        public ActionResult Loguearse()
         {
-            if (ModelState.IsValid)// falta completar la clase BD cdo este hecha la home
-            {
-                bool valido = BD.ValidarLoginUsuario(user);
-                if (valido == true)
-                {
-                    return View("Index");
-                }
-                else
-                {
-                    return View("Login");
-                }
-            }
-            else
-            {
-                return View("Login");
-            }
+            return View("Login");
+        }
+        public ActionResult CrearCuenta()
+        {
+            return View("CrearCuenta");
         }
     }
 }
