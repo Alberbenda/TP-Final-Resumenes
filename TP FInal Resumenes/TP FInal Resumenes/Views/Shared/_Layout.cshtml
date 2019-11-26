@@ -18,10 +18,18 @@
             </a>
 
             <!-- LO MISMO PERO A LA VIEW DE REGISTER -->
-
-                <a class="btnheader" style="float: right;" href="">Registrate</a>
-
-            <a class="btnheader" style="float: right;" href="">Iniciar sesión</a>
+            @{
+                if (Session["usuario"] != null)
+                {
+                    <p>@Session["nombre"]</p>
+                    <a href="@Url.Action("Cerrar", "Home")" class="btnheader" style="float: right;" href="">Cerrar sesión</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("CrearCuenta", "Home")" class="btnheader" style="float: right;" href="">Registrate</a>
+                    <a href="@Url.Action("Loguearse", "Home")" class="btnheader" style="float: right;" href="">Iniciar sesión</a>
+                }
+            }
 
 
 

@@ -27,6 +27,13 @@ namespace TP_FInal_Resumenes.Controllers
 
             return View();
         }
+        public ActionResult Cerrar()
+        {
+            Session["usuario"] = null;
+            Session["nombre"] = null;
+
+            return View("Index");
+        }
         [HttpPost]
         public ActionResult ValidarLoginUsuario(Login usuario)
         {
@@ -37,6 +44,8 @@ namespace TP_FInal_Resumenes.Controllers
                 Usuarios usu = BD.ValidarLoginUsuario(username, pass);
                 if (usu.IdUsuario != -1)
                 {
+                    Session["usuario"] = usu.IdUsuario;
+                    Session["nombre"] = usu.Nombre + " " + usu.Apellido;
                     return View("Index");
                 }
                 else

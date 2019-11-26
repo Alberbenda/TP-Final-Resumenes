@@ -12,5 +12,5 @@
     <p>Escuela:</p>@Html.DropDownListFor(model => model.FkEscuela, new SelectList(ViewBag.ListaEscuelas, "IdEscuela", "NombreEscuela"))
     <p>Año:</p>@Html.TextBoxFor(model => model.Ano) @Html.ValidationMessageFor(model => model.Ano)<br />
     <p>Archivo:</p>@Html.TextBoxFor(model => model.Archivo, new { type = "file" })<br />
-
+    <input type="submit" value="Subir Resumen" />
 }
