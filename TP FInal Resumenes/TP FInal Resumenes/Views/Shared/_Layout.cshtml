@@ -4,44 +4,57 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>Resumamos</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
 
-             <header class="header"> 
-             <img src="~/Content/logoresumamos.png" alt="" width="1424" height="343" class="logo" />
-             </header>
+    <div class="navbar navbar-fixed-top">
+        <header class="header">
+            <a href="">
+                <img src="~/Content/logoresumamos.png" alt="" width="1374" height="293" class="logo" />
+            </a>
+
+            <!-- LO MISMO PERO A LA VIEW DE REGISTER -->
+
+                <a class="btnheader" style="float: right;" href="">Registrate</a>
+
+            <a class="btnheader" style="float: right;" href="">Iniciar sesión</a>
 
 
-                                
-                                <div class="navbar-collapse collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                                        <li>@Html.ActionLink("Iniciar Sesion", "Loguearse", "Home")</li>
-                                        <li>@Html.ActionLink("Crear cuenta", "CrearCuenta", "Home")</li>
-                                        <li>@Html.ActionLink("Insertar Resumen", "InserRes", "Home")</li>
-                                    </ul>
-                                </div>
-                        </div>
-                </div>
+
+        </header>
+
+        </div>
+
+            <div class="container">
+
+
+
+
+
+
                 <div class="container body-content">
                     @RenderBody()
-                    <hr />
                     <footer>
-                        <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+                        <img src="~/Content/logoresumamos.png" alt="" width="1374" height="293" class="logofooter" />
+                        <br />
+                        <div class="containericons">
+                            <img src="~/Content/fbicon.png" alt="" width="148" height="149" class="iconimg" />
+                            <img src="~/Content/igicon.png" alt="" width="148" height="149" class="iconimg" />
+                            <img src="~/Content/twitterimg.png" alt="" width="148" height="149" class="iconimg" />
+                        </div>
+                        <br />
+                        <p>Copyright © 2019 <b>Resumamos!</b></p>
                     </footer>
                 </div>
 
                 @Scripts.Render("~/bundles/jquery")
                 @Scripts.Render("~/bundles/bootstrap")
                 @RenderSection("scripts", required: false)
+            </div>
 
-                
-</body>
-</html>
+    </body>
+    </html>
