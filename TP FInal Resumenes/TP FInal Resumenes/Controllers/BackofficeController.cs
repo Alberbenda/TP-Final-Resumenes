@@ -14,43 +14,5 @@ namespace TP_FInal_Resumenes.Controllers
         {
             return View();
         }
-        public ActionResult ValidarLoginUsuario (Usuarios user)
-        {
-            if (ModelState.IsValid)// falta completar la clase BD cdo este hecha la home
-            {
-                bool valido = BD.ValidarLoginUsuario(user);
-                if (valido == true)
-                {
-                    return View("Index");
-                }
-                else
-                {
-                    return View("Login");
-                }
-            }
-            else
-            {
-                return View("Login");
-            }
-        }
-        public ActionResult ValidarCrearUsuario(Usuarios user)
-        {
-            if (ModelState.IsValid)// falta completar la clase BD cdo este hecha la home
-            {
-                bool valido = BD.ValidarLoginUsuario(user);
-                if (valido == true)
-                {
-                    return View("Index");
-                }
-                else
-                {
-                    return View("Login");
-                }
-            }
-            else
-            {
-                return View("Login");
-            }
-        }
     }
 }

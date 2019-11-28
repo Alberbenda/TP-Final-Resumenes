@@ -4,7 +4,7 @@
     ViewBag.Title = "CrearCuenta";
 }
 <h2>CrearCuenta</h2>
-@using (Html.BeginForm("ValidarCrearUsuario", "BackOffice", FormMethod.Post))
+@using (Html.BeginForm("ValidarCrearUsuario", "Home", FormMethod.Post))
 {
     <p>Username:</p> @Html.TextBoxFor(model => model.Username) @Html.ValidationMessageFor(model => model.Username) <br />
     <p>Contraseña:</p> @Html.PasswordFor(model => model.Contrasena) @Html.ValidationMessageFor(model => model.Contrasena) <br />

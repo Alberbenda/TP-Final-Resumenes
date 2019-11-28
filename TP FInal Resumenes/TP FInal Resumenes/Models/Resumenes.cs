@@ -10,13 +10,19 @@ namespace TP_FInal_Resumenes.Models
     public class Resumenes
     {
         public int IdResumen { get; set; }
+        [Required]
         public string Nombre { get; set; }
+        [Required]
         public int FkMateria { get; set; }
         public int FkUsuario { get; set; }
         public double Puntuacion { get; set; }
+        [Required]
+        [Range(0,6,ErrorMessage ="Ingrese un año entre 1 y 5")]
         public int Ano { get; set; }
-        public HttpApplicationStateBase Imagen { get; set; }
+        [Required]
+        public HttpApplicationStateBase Archivo { get; set; }
         public string NombreImagen { get; set; }
+        [Required]
         public int FkEscuela { get; set; }
 
         public Resumenes()

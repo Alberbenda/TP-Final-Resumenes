@@ -1,12 +1,12 @@
 ﻿@using TP_FInal_Resumenes.Models
-@model Usuarios
+@model Login
 @{
     ViewBag.Title = "Login";
 }
 <h2>IniciarSesion</h2>
-@using (Html.BeginForm("ValidarLoginUsuario", "BackOffice", FormMethod.Post))
+@using (Html.BeginForm("ValidarLoginUsuario", "Home", FormMethod.Post))
 {
-    <p>Nombre:</p> @Html.TextBoxFor(model => model.Username) @Html.ValidationMessageFor(model => model.Username) <br />
+    <p>Usuario:</p> @Html.TextBoxFor(model => model.Username) @Html.ValidationMessageFor(model => model.Username) <br />
     <p>Contraseña:</p> @Html.PasswordFor(model => model.Contrasena) @Html.ValidationMessageFor(model => model.Contrasena) <br />
     <input type="submit" value="Enviar" />
 }
