@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TP_FInal_Resumenes.Models
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -29,70 +30,22 @@
         <!-- Stats Gallery Section -->
 
         <div class="gallery">
+            @foreach(Resumenes res in ViewBag.lista)
+                { 
             <div class="thumbnail">
                 <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
+                <h4>@res.Nombre </h4>
+                <p class="tag">@BD.TraerMateriaxId(res.FkMateria).NombreMateria</p>
+                <p class="tag">@BD.TraerEscuelaxId(res.FkEscuela).NombreEscuela</p>
+                <p class="tag">Puntuacion:@res.Puntuacion</p>
+                @if (Session["usuario"] != null)
+                {
+                    <a href="@res.Archivo">
+                        Descargar
+                    </a>
+                }
             </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-        </div>
-        <div class="gallery">
-            <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
+            }
         </div>
         <hr />
         <hr />

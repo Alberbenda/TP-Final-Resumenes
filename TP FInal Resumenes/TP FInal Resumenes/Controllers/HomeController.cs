@@ -11,6 +11,7 @@ namespace TP_FInal_Resumenes.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.lista = BD.TraerResumenesXPunt();
             return View();
         }
 
@@ -46,6 +47,7 @@ namespace TP_FInal_Resumenes.Controllers
                 {
                     Session["usuario"] = usu.IdUsuario;
                     Session["nombre"] = usu.Nombre + " " + usu.Apellido;
+                    ViewBag.lista = BD.TraerResumenesXPunt();
                     return View("Index");
                 }
                 else

@@ -205,10 +205,10 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CrearCuenta.cshtml" />
     <Content Include="Views\Home\InsertarResumen.cshtml" />
+    <Content Include="Views\Backoffice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Backoffice\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
