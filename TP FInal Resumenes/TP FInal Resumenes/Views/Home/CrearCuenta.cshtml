@@ -3,15 +3,33 @@
 @{
     ViewBag.Title = "CrearCuenta";
 }
-<h2>CrearCuenta</h2>
+<br />
+<br />
+<br />
+
 @using (Html.BeginForm("ValidarCrearUsuario", "Home", FormMethod.Post))
 {
-    <p>Username:</p> @Html.TextBoxFor(model => model.Username) @Html.ValidationMessageFor(model => model.Username) <br />
-    <p>Contraseña:</p> @Html.PasswordFor(model => model.Contrasena) @Html.ValidationMessageFor(model => model.Contrasena) <br />
-    <p>Contra2:</p> @Html.PasswordFor(model => model.Contra2) @Html.ValidationMessageFor(model => model.Contra2) <br />
-    <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) @Html.ValidationMessageFor(model => model.Nombre) <br />
-    <p>Apellido:</p> @Html.TextBoxFor(model => model.Apellido) @Html.ValidationMessageFor(model => model.Apellido) <br />
-    <p>Mail:</p> @Html.TextBoxFor(model => model.Mail) @Html.ValidationMessageFor(model => model.Mail) <br />
-    <input type="submit" value="Aceptar" />
+<div class="CrearCuenta">
+    <center>
+        <br />
+        <h4><b>Registrarse</b></h4>
+        <div><p><b>Username:</b></p> @Html.TextBoxFor(model => model.Username)</div> @Html.ValidationMessageFor(model => model.Username) <br />
+
+        <div><p><b>Contraseña:</b></p> @Html.PasswordFor(model => model.Contrasena)</div> @Html.ValidationMessageFor(model => model.Contrasena) <br />
+
+        <div><p><b>Confirmar Contraseña:</b></p> @Html.PasswordFor(model => model.Contra2)</div> @Html.ValidationMessageFor(model => model.Contra2) <br />
+
+        <div><p><b>Nombre:</b></p> @Html.TextBoxFor(model => model.Nombre)</div> @Html.ValidationMessageFor(model => model.Nombre) 
+        <br />
+
+        <div><p><b>Apellido:</b></p> @Html.TextBoxFor(model => model.Apellido)</div> @Html.ValidationMessageFor(model => model.Apellido) <br />
+
+        <div><p><b>Mail:</b></p> @Html.TextBoxFor(model => model.Mail)</div> @Html.ValidationMessageFor(model => model.Mail) <br />
+
+        <br />
+
+        <input type="submit" value="Crear Cuenta" />
+    </center>
+</div>
 }
 

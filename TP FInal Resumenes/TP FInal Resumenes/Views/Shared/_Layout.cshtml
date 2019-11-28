@@ -13,7 +13,7 @@
 
     <div class="navbar navbar-fixed-top">
         <header class="header">
-            <a href="">
+            <a href="@Url.Action("Index", "Home")">
                 <img src="~/Content/logoresumamos.png" alt="" width="1374" height="293" class="logo" />
             </a>
 
@@ -22,17 +22,14 @@
             if (Session["usuario"] != null)
             {
             <p>@Session["nombre"]</p>
-            <a href="@Url.Action(" Cerrar", "Home" )" class="btnheader" style="float: right;" href="">Cerrar sesión</a>
+            <a href="@Url.Action("Cerrar", "Home")" class="btnheader" style="float: right;" >Cerrar sesión</a>
             }
             else
             {
-            <a href="@Url.Action(" CrearCuenta", "Home" )" class="btnheader" style="float: right;" href="">Registrate</a>
-            <a href="@Url.Action(" Loguearse", "Home" )" class="btnheader" style="float: right;" href="">Iniciar sesión</a>
+            <a href="@Url.Action("CrearCuenta", "Home")" class="btnheader" style="float: right;" >Registrate</a>
+            <a href="@Url.Action("Loguearse", "Home")" class="btnheader" style="float: right;" >Iniciar sesión</a>
             }
             }
-            <a class="btnheader" style="float: right;" href="">Registrate</a>
-
-            <a class="btnheader" style="float: right;" href="">Iniciar sesión</a>
 
 
 
@@ -53,13 +50,23 @@
                         <img src="~/Content/logoresumamos.png" alt="" width="1374" height="293" class="logofooter" />
                         <br />
                         <div class="containericons">
+                            <a href="https://www.facebook.com/resumamosargentina/" target="_blank">
                             <img src="~/Content/fbicon.png" alt="" width="148" height="149" class="iconimg" />
+                            </a>
+
+                            <a href="https://www.instagram.com/resumamosargentina/" target="_blank">
                             <img src="~/Content/igicon.png" alt="" width="148" height="149" class="iconimg" />
-                            <img src="~/Content/twitterimg.png" alt="" width="148" height="149" class="iconimg" />
+                            </a>
+
+                            <a href="https://www.twitter.com/resumamosargentina/" target="_blank">
+                            <img src="~/Content/twicon.png" alt="" width="148" height="149" class="iconimg" />
+                            </a>
                         </div>
                         <br />
 
+                        <div class="copyright">
                         <p> Copyright © 2019 <b>Resumamos!</b></p>
+                        </div>
                     </footer>
                 </div>
 
