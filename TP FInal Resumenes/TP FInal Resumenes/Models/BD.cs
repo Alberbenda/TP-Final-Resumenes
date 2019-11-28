@@ -47,7 +47,7 @@ namespace TP_FInal_Resumenes.Models
             Desconectar();
             return user;
         }
-        public static List<Resumenes> TraerResumener(int idRes)//Cuando es -1 trae todo, sino trae esa
+        public static List<Resumenes> TraerResumenes (int idRes)//Cuando es -1 trae todo, sino trae esa
         {
 
           List<Resumenes> ListaDeResumenes = new List<Resumenes>();
@@ -57,7 +57,7 @@ namespace TP_FInal_Resumenes.Models
             command.CommandType = System.Data.CommandType.Text;
             if (idRes!= -1)
             {
-                command.CommandText = "SELECT* FROM Resumenes where IdResumen ='" + idRes + "'"; //Consulta
+                command.CommandText = "SELECT* FROM Resumenes where IdResumen =" + idRes ; //Consulta
             }
             else
             {
@@ -164,6 +164,92 @@ namespace TP_FInal_Resumenes.Models
             Desconectar();
 
             return ListaDeMaterias;
+        }
+        public static List<Resumenes> TraerResumenesXAno(int Ano)//Cuando es -1 trae todo, sino trae esa
+        {
+
+            List<Resumenes> ListaDeResumenes = new List<Resumenes>();
+
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "SELECT* FROM Resumenes where Anio = " + Ano ; //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+
+                int idres = Convert.ToInt32(dataReader["IdResumen"]);
+                string Nom = dataReader["Nombre"].ToString();
+                int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
+                int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
+                double punt = Convert.ToDouble(dataReader["Puntuacion"]);
+                int ano = Convert.ToInt32(dataReader["Anio"]);
+                string ft = dataReader["Foto"].ToString();
+                int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
+                Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
+                ListaDeResumenes.Add(resu);
+            }
+            dataReader.Close();
+            Desconectar();
+
+            return ListaDeResumenes;
+        }
+        public static List<Resumenes> TraerResumenesXMat(int Mat)//Cuando es -1 trae todo, sino trae esa
+        {
+
+            List<Resumenes> ListaDeResumenes = new List<Resumenes>();
+
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "SELECT* FROM Resumenes where FkMateria = " + Mat; //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+
+                int idres = Convert.ToInt32(dataReader["IdResumen"]);
+                string Nom = dataReader["Nombre"].ToString();
+                int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
+                int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
+                double punt = Convert.ToDouble(dataReader["Puntuacion"]);
+                int ano = Convert.ToInt32(dataReader["Anio"]);
+                string ft = dataReader["Foto"].ToString();
+                int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
+                Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
+                ListaDeResumenes.Add(resu);
+            }
+            dataReader.Close();
+            Desconectar();
+
+            return ListaDeResumenes;
+        }
+        public static List<Resumenes> TraerResumenesXEsc(int Esc)//Cuando es -1 trae todo, sino trae esa
+        {
+
+            List<Resumenes> ListaDeResumenes = new List<Resumenes>();
+
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "SELECT* FROM Resumenes where FkEscuela = " + Esc; //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+
+                int idres = Convert.ToInt32(dataReader["IdResumen"]);
+                string Nom = dataReader["Nombre"].ToString();
+                int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
+                int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
+                double punt = Convert.ToDouble(dataReader["Puntuacion"]);
+                int ano = Convert.ToInt32(dataReader["Anio"]);
+                string ft = dataReader["Foto"].ToString();
+                int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
+                Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
+                ListaDeResumenes.Add(resu);
+            }
+            dataReader.Close();
+            Desconectar();
+            return ListaDeResumenes;
         }
     }
 }
