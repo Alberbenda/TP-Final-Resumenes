@@ -71,9 +71,9 @@ namespace TP_FInal_Resumenes.Models
                 string Nom = dataReader["Nombre"].ToString();
                 int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
                 int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
-                double punt = Convert.ToDouble(dataReader["Puntuacion"]);
+                int punt = Convert.ToInt32(dataReader["Puntuacion"]);
                 int ano = Convert.ToInt32(dataReader["Anio"]);
-                string ft= dataReader["Foto"].ToString();
+                string ft= dataReader["Archivo"].ToString();
                 int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
                 Resumenes resu = new Resumenes(idres, Nom,fkMat , fkUsu, punt, ano,ft,fkesc);
                 ListaDeResumenes.Add(resu);
@@ -165,6 +165,46 @@ namespace TP_FInal_Resumenes.Models
 
             return ListaDeMaterias;
         }
+
+        public static Materia TraerMateriaxId(int id)
+        {
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "SELECT * FROM Materias WHERE IdMateria="+id.ToString(); //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            Materia mat = new Materia();
+            while (dataReader.Read())
+            {
+                int idmate = Convert.ToInt32(dataReader["IdMateria"]);
+                string NomMa = dataReader["NombreMateria"].ToString();
+                mat = new Materia(idmate, NomMa);
+            }
+            dataReader.Close();
+            Desconectar();
+
+            return mat;
+        }
+
+        public static Escuela TraerEscuelaxId(int id)
+        {
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "SELECT * FROM Escuelas WHERE IdEscuela=" + id.ToString(); //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            Escuela esc = new Escuela();
+            while (dataReader.Read())
+            {
+                int idE = Convert.ToInt32(dataReader["IdEscuela"]);
+                string Nom = dataReader["NombreEscuela"].ToString();
+                esc = new Escuela (idE, Nom);
+            }
+            dataReader.Close();
+            Desconectar();
+
+            return esc;
+        }
         public static List<Resumenes> TraerResumenesXAno(int Ano)//Cuando es -1 trae todo, sino trae esa
         {
 
@@ -182,9 +222,9 @@ namespace TP_FInal_Resumenes.Models
                 string Nom = dataReader["Nombre"].ToString();
                 int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
                 int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
-                double punt = Convert.ToDouble(dataReader["Puntuacion"]);
+                int punt = Convert.ToInt32(dataReader["Puntuacion"]);
                 int ano = Convert.ToInt32(dataReader["Anio"]);
-                string ft = dataReader["Foto"].ToString();
+                string ft = dataReader["Archivo"].ToString();
                 int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
                 Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
                 ListaDeResumenes.Add(resu);
@@ -211,9 +251,9 @@ namespace TP_FInal_Resumenes.Models
                 string Nom = dataReader["Nombre"].ToString();
                 int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
                 int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
-                double punt = Convert.ToDouble(dataReader["Puntuacion"]);
+                int punt = Convert.ToInt32(dataReader["Puntuacion"]);
                 int ano = Convert.ToInt32(dataReader["Anio"]);
-                string ft = dataReader["Foto"].ToString();
+                string ft = dataReader["Archivo"].ToString();
                 int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
                 Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
                 ListaDeResumenes.Add(resu);
@@ -240,9 +280,37 @@ namespace TP_FInal_Resumenes.Models
                 string Nom = dataReader["Nombre"].ToString();
                 int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
                 int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
-                double punt = Convert.ToDouble(dataReader["Puntuacion"]);
+                int punt = Convert.ToInt32(dataReader["Puntuacion"]);
                 int ano = Convert.ToInt32(dataReader["Anio"]);
-                string ft = dataReader["Foto"].ToString();
+                string ft = dataReader["Archivo"].ToString();
+                int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
+                Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
+                ListaDeResumenes.Add(resu);
+            }
+            dataReader.Close();
+            Desconectar();
+            return ListaDeResumenes;
+        }
+        public static List<Resumenes> TraerResumenesXPunt()//Cuando es -1 trae todo, sino trae esa
+        {
+
+            List<Resumenes> ListaDeResumenes = new List<Resumenes>();
+
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = " SELECT TOP 8 * FROM Resumenes ORDER BY Puntuacion DESC"; //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+
+                int idres = Convert.ToInt32(dataReader["IdResumen"]);
+                string Nom = dataReader["Nombre"].ToString();
+                int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
+                int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
+                int punt = Convert.ToInt32(dataReader["Puntuacion"]);
+                int ano = Convert.ToInt32(dataReader["Anio"]);
+                string ft = dataReader["Archivo"].ToString();
                 int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
                 Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
                 ListaDeResumenes.Add(resu);

@@ -15,7 +15,7 @@ namespace TP_FInal_Resumenes.Models
         [Required]
         public int FkMateria { get; set; }
         public int FkUsuario { get; set; }
-        public double Puntuacion { get; set; }
+        public int Puntuacion { get; set; }
         [Required]
         [Range(0,6,ErrorMessage ="Ingrese un año entre 1 y 5")]
         public int Ano { get; set; }
@@ -36,7 +36,7 @@ namespace TP_FInal_Resumenes.Models
             NombreImagen = "";
             FkEscuela = 0;
         }
-        public Resumenes (int id, string nom, int fkmat, int fkua, double puntu, int ano, string nomimg,int fkesc)
+        public Resumenes (int id, string nom, int fkmat, int fkua, int puntu, int ano, string nomimg,int fkesc)
         {
             IdResumen = id;
             Nombre = nom;
