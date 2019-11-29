@@ -40,17 +40,17 @@
                 <p class="tag">Puntuacion:@res.Puntuacion</p>
                 @if (Session["usuario"] != null)
                 {
-                    <a href="@Url.Action("ImageDownload", "Home", new { Id = res.IdResumen })" >
+                    <a href="@Url.Action("ImageDownload", "Home", new { Id = res.IdResumen })" class="btnA btnA-white btnA-animate" >
                         Descargar
                     </a>
-                    <a href='@Url.Action("SumarMeGusta", "Home", new { Id = res.IdResumen })'>
+                    <a href='@Url.Action("SumarMeGusta", "Home", new { Id = res.IdResumen })'  class="btnA btnA-white btnA-animate" >
                         Me Gusta
                     </a>
 
 
                     if (Session["admin"] != null)
                     {
-                        <a href='@Url.Action("EliminarRes", "Home", new { Id = res.IdResumen })'>
+                        <a href='@Url.Action("EliminarRes", "Home", new { Id = res.IdResumen })'  class="btnA btnA-white btnA-animate" >
                             Eliminar Resumen
                         </a>
                     
