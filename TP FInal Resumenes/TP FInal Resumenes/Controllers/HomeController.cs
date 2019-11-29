@@ -21,7 +21,15 @@ namespace TP_FInal_Resumenes.Controllers
 
             return View();
         }
+        [HttpGet]
+        public FileResult ImageDownload(int Id)
+        {
 
+           List<Resumenes> res = BD.TraerResumenes(Id);
+            string nombre = res[0].NombreImagen;
+            var imgPath = Server.MapPath("~/Content/" + nombre);
+            return File(imgPath, "image/jpeg", nombre);
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -32,7 +40,8 @@ namespace TP_FInal_Resumenes.Controllers
         {
             Session["usuario"] = null;
             Session["nombre"] = null;
-
+            Session["admin"] = null;
+            ViewBag.lista = BD.TraerResumenesXPunt();
             return View("Index");
         }
         [HttpPost]
@@ -47,6 +56,14 @@ namespace TP_FInal_Resumenes.Controllers
                 {
                     Session["usuario"] = usu.IdUsuario;
                     Session["nombre"] = usu.Nombre + " " + usu.Apellido;
+                    if (usu.Admin == true)
+                    {
+                        Session["admin"] = usu.Admin;
+                    }
+                    else
+                    {
+                        Session["admin"] = null;// Esta en modo simio
+                    }
                     ViewBag.lista = BD.TraerResumenesXPunt();
                     return View("Index");
                 }
@@ -71,7 +88,10 @@ namespace TP_FInal_Resumenes.Controllers
 
         public ActionResult SumarMeGusta(int Id)
         {
-            BD.PuntuarResumen(Id);
+            if (Session["usuario"] != null)
+            {
+                BD.PuntuarResumen(Id);   
+            }
             return RedirectToAction("Index");
         }
         [HttpPost]
@@ -100,6 +120,11 @@ namespace TP_FInal_Resumenes.Controllers
             ViewBag.ListaMaterias = BD.TraerMateria();
             ViewBag.ListaEscuelas = BD.TraerEscuelas();
             return View("InsertarResumen");
+        }
+        public ActionResult EliminarRes(int Id)
+        {
+            BD.EliminarResumen(Id);
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult InsertarResumen (Resumenes resu)

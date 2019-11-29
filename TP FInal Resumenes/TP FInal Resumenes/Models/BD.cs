@@ -330,7 +330,7 @@ namespace TP_FInal_Resumenes.Models
             Desconectar();
         }
 
-        public static List<Resumenes> TraerResumenesXPuntYEsc(int idEsc)//Cuando es -1 trae todo, sino trae esa
+        public static List<Resumenes> TraerResumenesXPuntYEsc(int idEsc)
         {
 
             List<Resumenes> ListaDeResumenes = new List<Resumenes>();

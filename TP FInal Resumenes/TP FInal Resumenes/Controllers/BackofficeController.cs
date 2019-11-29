@@ -12,8 +12,14 @@ namespace TP_FInal_Resumenes.Controllers
         // GET: Backoffice
         public ActionResult Index()
         {
+
+            ViewBag.lista = BD.TraerResumenesXPunt();
             return View();
         }
-
+        public ActionResult EliminarRes()
+        {
+            ViewBag.lista = BD.TraerResumenesXPunt();
+            return View("Index");
+        }
     }
 }
