@@ -68,6 +68,12 @@ namespace TP_FInal_Resumenes.Controllers
         {
             return View("CrearCuenta");
         }
+
+        public ActionResult SumarMeGusta(int Id)
+        {
+            BD.PuntuarResumen(Id);
+            return RedirectToAction("Index");
+        }
         [HttpPost]
         public ActionResult ValidarCrearUsuario(Usuarios user)
         {
