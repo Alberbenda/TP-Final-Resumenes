@@ -1,7 +1,85 @@
-﻿
+﻿@using TP_FInal_Resumenes.Models
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home Page";
 }
 
-<h2>Index</h2>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resumamos!</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <!--   CONTAINER   -->
+    <div class="container">
+        <!-- Header -->
+        <!-- Hero Section -->
+
+        <div class="shows">
+
+            <center>
+
+                <div class="shows"> <img src="~/Content/shows.png" alt="" width="615" height="60" /></div>
+            </center>
+        </div>
+
+        <!-- Stats Gallery Section -->
+
+        <div class="gallery">
+            @if (Session["usuario"] != null)
+            {
+                <a href='@Url.Action("inserRes", "Home")'>
+                    Insertar Resumen
+                </a>
+            }
+                @foreach (Resumenes res in ViewBag.lista)
+                {
+                    <div class="thumbnail">
+                        <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                        <h4>@res.Nombre </h4>
+                        <p class="tag">@BD.TraerMateriaxId(res.FkMateria).NombreMateria</p>
+                        <p class="tag">@BD.TraerEscuelaxId(res.FkEscuela).NombreEscuela</p>
+                        <p class="tag">Puntuacion:@res.Puntuacion</p>
+                        @if (Session["usuario"] != null)
+                        {
+                            <a href="@res.Archivo">
+                                Descargar
+                            </a>
+                            <a href='@Url.Action("SumarMeGusta","Home", new { Id = res.IdResumen })'>
+                                Me Gusta
+                            </a>
+                            if (Session["admin"] != null)
+                            {
+                                <a href='@Url.Action("EliminarRes", "Home", new { Id = res.IdResumen })'>
+                                    Eliminar
+                                </a>
+                            }
+                        }
+
+                    </div>
+                }
+            </div>
+        <hr />
+        <hr />
+        <hr />
+
+
+        <center>
+
+            <div class="showdwn"> <img src="~/Content/bannerbg.png" alt="" width="987" height="233" /></div>
+        </center>
+
+
+        <!-- Footer Section -->
+        <!-- Copyrights Section -->
+
+
+    </div>
+    <!-- Main Container Ends -->
+</body>
+</html>
 

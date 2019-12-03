@@ -510,6 +510,9 @@ footer {
         text-align: center;
         padding-left: 0px;
     }
+
+
+
 }
 
 /* Small Desktops */
@@ -530,5 +533,68 @@ footer {
 
     .intro .column p {
         width: 80%;
+    }
+
+
+    /*botones tranformation*/
+
+
+    .btnA:link,
+    .btnA:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 7px 23px;
+        display: inline-block;
+        border-radius: 100px;
+        transition: all .2s;
+    }
+
+    .btnA:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btnA:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btnA-white {
+        background-color: #00e6a8;
+        color: #777;
+    }
+
+    .btnA::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    .btnA-white::after {
+        background-color: #00e6a8;
+    }
+
+    .btnA:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+
+    .btnA-animated {
+        animation: moveInBottom 5s ease-out;
+        animation-fill-mode: backwards;
+    }
+
+    @keyframes moveInBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
     }
 }

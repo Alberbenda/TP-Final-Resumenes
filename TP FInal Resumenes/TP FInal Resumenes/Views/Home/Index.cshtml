@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TP_FInal_Resumenes.Models
+@{
                 /**/
 
                 ViewBag.Title = "Home Page";
@@ -35,70 +36,57 @@
         <!-- Stats Gallery Section -->
 
         <div class="gallery">
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
+            @foreach(Resumenes res in ViewBag.lista)
+                { 
+               <div class="thumbnail">
+                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <h4>@res.Nombre </h4>
+                <p class="tag">@BD.TraerMateriaxId(res.FkMateria).NombreMateria</p>
+                <p class="tag">@BD.TraerEscuelaxId(res.FkEscuela).NombreEscuela</p>
+                <p class="tag">Puntuacion:@res.Puntuacion</p>
+                @if (Session["usuario"] != null)
+                {
+                    <a href="@Url.Action("ImageDownload", "Home", new { Id = res.IdResumen })" class="btnA btnA-white btnA-animate" >
+                        Descargar
+                    </a>
+                    <a href='@Url.Action("SumarMeGusta", "Home", new { Id = res.IdResumen })'  class="btnA btnA-white btnA-animate" >
+                        Me Gusta
+                    </a>
 
 
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
+                    if (Session["admin"] != null)
+                    {
+                        <a href='@Url.Action("EliminarRes", "Home", new { Id = res.IdResumen })'  class="btnA btnA-white btnA-animate" >
+                            Eliminar Resumen
+                        </a>
+                    
+                    }
+                }
+            @foreach(Resumenes res in ViewBag.lista)
+            {
+                        <div class="thumbnail">
+                            <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                            <h4>@res.Nombre </h4>
+                            <p class="tag">@BD.TraerMateriaxId(res.FkMateria).NombreMateria</p>
+                            <p class="tag">@BD.TraerEscuelaxId(res.FkEscuela).NombreEscuela</p>
+                            <p class="tag">Puntuacion:@res.Puntuacion</p>
+                            @if (Session["usuario"] != null)
+                            {
+                            <a href="@Url.Action(" ImageDownload", "Home" , new { Id=res.IdResumen })" class="btnA btnA-white btnA-animate">
+                                Descargar
+                            </a>
+                            <a href='@Url.Action("SumarMeGusta", "Home", new { Id = res.IdResumen })' class="btnA btnA-white btnA-animate">
+                                Me Gusta
+                            </a>
+                            if (Session["admin"] != null)
+                            {
+                            <a href='@Url.Action("EliminarRes", "Home", new { Id = res.IdResumen })' class="btnA btnA-white btnA-animate">
+                                Eliminar Resumen
+                            </a>
 
-
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-        </div>
-        <div class="gallery">
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
-
-
-            <div class="thumbnail">
-                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>TEMA</h4>
-                <p class="tag">Materia</p>
-                <p class="tag">Escuela</p>
-            </div>
+                            }
+                            }
+                        </div>
         </div>
         <hr />
         <hr />
@@ -114,7 +102,7 @@
                 <div class="showdwncenter"><b>Y EMPEZÁ A SUBIR TUS APUNTES.</b></div>
                 <div class="showdwnthird"><b>UNAMOS A LOS ESTUDIANTES.</b></div>
                 <div class="showdwnbutton">
-                    <a href="@Url.Action("CrearCuenta", "Home")" class="showdwnbtn">REGISTRÁTE</a>
+                    <a href="@Url.Action(" CrearCuenta", "Home" )" class="showdwnbtn">REGISTRÁTE</a>
                 </div>
             </div>
         </center>

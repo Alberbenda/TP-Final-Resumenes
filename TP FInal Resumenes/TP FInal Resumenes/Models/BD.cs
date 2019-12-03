@@ -299,7 +299,46 @@ namespace TP_FInal_Resumenes.Models
             Conectar();
             SqlCommand command = SQL.CreateCommand();
             command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = " SELECT TOP 8 * FROM Resumenes ORDER BY Puntuacion DESC"; //Consulta
+            command.CommandText = " SELECT * FROM Resumenes ORDER BY Puntuacion DESC"; //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+
+                int idres = Convert.ToInt32(dataReader["IdResumen"]);
+                string Nom = dataReader["Nombre"].ToString();
+                int fkMat = Convert.ToInt32(dataReader["FkMateria"]);
+                int fkUsu = Convert.ToInt32(dataReader["FkUsuario"]);
+                int punt = Convert.ToInt32(dataReader["Puntuacion"]);
+                int ano = Convert.ToInt32(dataReader["Anio"]);
+                string ft = dataReader["Archivo"].ToString();
+                int fkesc = Convert.ToInt32(dataReader["FkEscuela"]);
+                Resumenes resu = new Resumenes(idres, Nom, fkMat, fkUsu, punt, ano, ft, fkesc);
+                ListaDeResumenes.Add(resu);
+            }
+            dataReader.Close();
+            Desconectar();
+            return ListaDeResumenes;
+        }
+
+        public static void PuntuarResumen (int id)
+        {
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = " UPDATE Resumenes set Puntuacion = (SELECT Puntuacion FROM Resumenes where IdResumen = " + id + " ) + 1 where IdResumen = "+ id; //Consulta
+            SqlDataReader dataReader = command.ExecuteReader();
+            Desconectar();
+        }
+
+        public static List<Resumenes> TraerResumenesXPuntYEsc(int idEsc)
+        {
+
+            List<Resumenes> ListaDeResumenes = new List<Resumenes>();
+
+            Conectar();
+            SqlCommand command = SQL.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = " SELECT TOP 8 * FROM Resumenes where FkEscuela = " + idEsc + " ORDER BY Puntuacion DESC"; //Consulta
             SqlDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
