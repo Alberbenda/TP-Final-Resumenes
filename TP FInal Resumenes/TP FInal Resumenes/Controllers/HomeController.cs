@@ -124,6 +124,7 @@ namespace TP_FInal_Resumenes.Controllers
         public ActionResult EliminarRes(int Id)
         {
             BD.EliminarResumen(Id);
+
             return RedirectToAction("Index");
         }
         [HttpPost]
