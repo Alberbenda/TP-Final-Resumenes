@@ -30,33 +30,39 @@
         <!-- Stats Gallery Section -->
 
         <div class="gallery">
-            @foreach(Resumenes res in ViewBag.lista)
-                { 
-               <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
-                <h4>@res.Nombre </h4>
-                <p class="tag">@BD.TraerMateriaxId(res.FkMateria).NombreMateria</p>
-                <p class="tag">@BD.TraerEscuelaxId(res.FkEscuela).NombreEscuela</p>
-                <p class="tag">Puntuacion:@res.Puntuacion</p>
-                @if (Session["usuario"] != null)
-                {
-                    <a href="@Url.Action("ImageDownload", "Home", new { Id = res.IdResumen })" class="btnA btnA-white btnA-animate" >
-                        Descargar
-                    </a>
-                    <a href='@Url.Action("SumarMeGusta", "Home", new { Id = res.IdResumen })'  class="btnA btnA-white btnA-animate" >
-                        Me Gusta
-                    </a>
-
-
-                    if (Session["admin"] != null)
+            @if (Session["usuario"] != null)
+            {
+                <a href='@Url.Action("inserRes", "Home")'>
+                    Insertar Resumen
+                </a>
+            }
+            @foreach (Resumenes res in ViewBag.lista)
+            {
+                <div class="thumbnail">
+                    <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                    <h4>@res.Nombre </h4>
+                    <p class="tag">@BD.TraerMateriaxId(res.FkMateria).NombreMateria</p>
+                    <p class="tag">@BD.TraerEscuelaxId(res.FkEscuela).NombreEscuela</p>
+                    <p class="tag">Puntuacion:@res.Puntuacion</p>
+                    @if (Session["usuario"] != null)
                     {
-                        <a href='@Url.Action("EliminarRes", "Home", new { Id = res.IdResumen })'  class="btnA btnA-white btnA-animate" >
-                            Eliminar Resumen
+                        <a href="@Url.Action("ImageDownload", "Home", new { Id = res.IdResumen })" class="btnA btnA-white btnA-animate">
+                            Descargar
                         </a>
-                    
+                        <a href='@Url.Action("SumarMeGusta", "Home", new { Id = res.IdResumen })' class="btnA btnA-white btnA-animate">
+                            Me Gusta
+                        </a>
+
+
+                        if (Session["admin"] != null)
+                        {
+                            <a href='@Url.Action("EliminarRes", "Home", new { Id = res.IdResumen })' class="btnA btnA-white btnA-animate">
+                                Eliminar Resumen
+                            </a>
+
+                        }
                     }
-                }
-            </div>
+                </div>
             }
         </div>
         <hr />
