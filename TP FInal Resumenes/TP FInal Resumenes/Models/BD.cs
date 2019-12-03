@@ -8,7 +8,7 @@ namespace TP_FInal_Resumenes.Models
 {
     public static class BD
     {
-        public static SqlConnection SQL = new SqlConnection("Server=.;Database=Resumamos;user id= alumno;password= alumno;");
+        public static SqlConnection SQL = new SqlConnection("Server=.;Database=Resumamos;user id= alumno;password= alumno1;");
         public static SqlConnection Conectar()
         {
             SQL.Open();

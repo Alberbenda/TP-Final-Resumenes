@@ -1,6 +1,7 @@
-﻿@using TP_FInal_Resumenes.Models
-@{
-    ViewBag.Title = "Home Page";
+﻿@{
+                /**/
+
+                ViewBag.Title = "Home Page";
 }
 
 <!doctype html>
@@ -13,7 +14,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    
+
     <!--   CONTAINER   -->
     <div class="container">
         <!-- Header -->
@@ -22,7 +23,7 @@
         <br />
         <br />
         <br />
-        <br />        
+        <br />
         <div class="shows">
 
             <center>
@@ -34,10 +35,8 @@
         <!-- Stats Gallery Section -->
 
         <div class="gallery">
-            @foreach(Resumenes res in ViewBag.lista)
-                { 
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -45,7 +44,7 @@
 
 
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -53,7 +52,7 @@
 
 
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -61,7 +60,7 @@
 
 
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -71,7 +70,7 @@
         </div>
         <div class="gallery">
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -79,7 +78,7 @@
 
 
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -87,7 +86,7 @@
 
 
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -95,7 +94,7 @@
 
 
             <div class="thumbnail">
-                <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
+                <a href="#"><img src="~/Content/bkg_06.jpg" alt="" width="2000" class="cards" /></a>
                 <h4>TEMA</h4>
                 <p class="tag">Materia</p>
                 <p class="tag">Escuela</p>
@@ -108,15 +107,15 @@
 
         <center>
 
-            <div class="showdwn"> 
-            <img src="~/Content/bannerbg.png" alt="" width="100%" height="100%" />
+            <div class="showdwn">
+                <img src="~/Content/bannerbg.png" alt="" width="100%" height="100%" />
 
-            <div class="showdwntext"><b>REGISTRÁTE, CONFIGURÁ TU PERFIL,</b></div>
-            <div class="showdwncenter"><b>Y EMPEZÁ A SUBIR TUS APUNTES.</b></div>
-            <div class="showdwnthird"><b>UNAMOS A LOS ESTUDIANTES.</b></div>
-            <div class="showdwnbutton">
-            <a href="@Url.Action("CrearCuenta", "Home")" class="showdwnbtn">REGISTRÁTE</a>
-            </div>
+                <div class="showdwntext"><b>REGISTRÁTE, CONFIGURÁ TU PERFIL,</b></div>
+                <div class="showdwncenter"><b>Y EMPEZÁ A SUBIR TUS APUNTES.</b></div>
+                <div class="showdwnthird"><b>UNAMOS A LOS ESTUDIANTES.</b></div>
+                <div class="showdwnbutton">
+                    <a href="@Url.Action("CrearCuenta", "Home")" class="showdwnbtn">REGISTRÁTE</a>
+                </div>
             </div>
         </center>
 
