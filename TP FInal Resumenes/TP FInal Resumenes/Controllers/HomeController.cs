@@ -129,9 +129,8 @@ namespace TP_FInal_Resumenes.Controllers
         [HttpPost]
         public ActionResult InsertarResumen (Resumenes resu)
         {
-
-
-
+            BD.InsertarResumen(resu);
+            ViewBag.lista = BD.TraerResumenesXPunt();
             return View("Index");
         }
 

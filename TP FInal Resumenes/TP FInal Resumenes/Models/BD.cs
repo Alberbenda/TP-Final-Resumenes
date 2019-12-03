@@ -299,7 +299,7 @@ namespace TP_FInal_Resumenes.Models
             Conectar();
             SqlCommand command = SQL.CreateCommand();
             command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = " SELECT TOP 8 * FROM Resumenes ORDER BY Puntuacion DESC"; //Consulta
+            command.CommandText = " SELECT * FROM Resumenes ORDER BY Puntuacion DESC"; //Consulta
             SqlDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
