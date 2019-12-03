@@ -5,7 +5,9 @@
 }
 
 
-
+<link rel="stylesheet" type="text/css" href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/Content/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="~/Content/animate.css">
 <!--===============================================================================================-->
@@ -43,7 +45,7 @@
                 </span>
             </div>
 
-            <div class="wrap-input100 validate-input" data-validate="Se requiere un nombre de usuario">
+            <div class="wrap-input100 validate-input" data-validate="Nombre de usuario incorrecto">
                 @Html.TextBoxFor(model => model.Username, new { @class = "input100" })
                 <span class="focus-input100">
                     @Html.ValidationMessageFor(model => model.Username)
@@ -59,15 +61,19 @@
                     ¿Olvidaste tu contraseña?
                 </a>
             </div>
-            <div class="wrap-input100 validate-input" data-validate="Se requiere una contraseña">
+            <div class="wrap-input100 validate-input" data-validate="Contraseña incorrecta">
                 @Html.PasswordFor(model => model.Contrasena, new { @class = "input100" })
+
                 <span class="focus-input100">
                     @Html.ValidationMessageFor(model => model.Contrasena)
                 </span>
             </div>
 
             <div class="container-login100-form-btn m-t-17">
-                <input type="submit" class="login100-form-btn" value="Iniciar sesión">
+                <!--<input type="submit" class="login100-form-btn" value="Iniciar sesión">-->
+                <button class="login100-form-btn">
+                    Iniciar sesión
+                </button>
             </div>
 
             <div class="w-full text-center p-t-55">

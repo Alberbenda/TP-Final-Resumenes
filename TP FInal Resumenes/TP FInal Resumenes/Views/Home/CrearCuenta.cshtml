@@ -3,33 +3,161 @@
 @{
     ViewBag.Title = "CrearCuenta";
 }
+
+<link rel="stylesheet" type="text/css" href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/Content/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/Content/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/Content/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/Content/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/Content/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/Content/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="~/Content/util.css">
+<link rel="stylesheet" type="text/css" href="~/Content/main.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+
+
 <br />
 <br />
 <br />
+<br />
 
-@using (Html.BeginForm("ValidarCrearUsuario", "Home", FormMethod.Post))
-{
-<div class="CrearCuenta">
-    <center>
+<center>
+    <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+        @using (Html.BeginForm("ValidarCrearUsuario", "Home", FormMethod.Post, new { @class = "login100-form validate-form flex-sb flex-w" }))
+        {
+            <h2>
+                <b>
+                    Registrarse
+                </b>
+            </h2>
+            <!--===============================================================================================-->
+            <div class="p-t-13 p-b-9">
+                <span class="txt1">
+                    Nombre de usuario
+                </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Se requiere un nombre de usuario">
+                @Html.TextBoxFor(model => model.Username, new { @class = "input100" })
+                <span class="focus-input100">
+                    @Html.ValidationMessageFor(model => model.Username)
+                </span>
+            </div>
+
+
+            <!--===============================================================================================-->
+            <br />
+            <br />
+
+            <div class="p-t-13 p-b-9">
+                <span class="txt1">
+                    Contraseña
+                </span>
+
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Se requiere una contraseña">
+                @Html.PasswordFor(model => model.Contrasena, new { @class = "input100" })
+                <span class="focus-input100">
+                    @Html.ValidationMessageFor(model => model.Contrasena)
+                </span>
+            </div>
+            <!--===============================================================================================-->
+
+
+            <br />
+            <br />
+            <div class="p-t-13 p-b-9">
+                <span class="txt1">
+                    Confirmar contraseña
+                </span>
+
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Se requiere una confirmacion contraseña">
+
+                @Html.PasswordFor(model => model.Contra2, new { @class = "input100" })
+                <span class="focus-input100">
+                    @Html.ValidationMessageFor(model => model.Contra2)
+                </span>
+            </div>
+            <!--===============================================================================================-->
+
+
+            <br />
+            <br />
+            <div class="p-t-13 p-b-9">
+                <span class="txt1">
+                    Nombre
+                </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Se requiere un nombre de usuario">
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "input100" })
+                <span class="focus-input100">
+                    @Html.ValidationMessageFor(model => model.Nombre)
+                </span>
+            </div>
+            <!--===============================================================================================-->
+
+
+
+            <div class="p-t-13 p-b-9">
+                <span class="txt1">
+                    Apellido
+                </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Se requiere un nombre de usuario">
+                @Html.TextBoxFor(model => model.Apellido, new { @class = "input100" })
+                <span class="focus-input100">
+                    @Html.ValidationMessageFor(model => model.Apellido)
+                </span>
+            </div>
+            <!--===============================================================================================-->
+
+
+            <br />
+            <br />
+            <div class="p-t-13 p-b-9">
+                <span class="txt1">
+                    Direccion de correo electronico
+                </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Se requiere un nombre de usuario">
+                @Html.TextBoxFor(model => model.Mail, new { @class = "input100" })
+                <span class="focus-input100">
+                    @Html.ValidationMessageFor(model => model.Mail)
+                </span>
+            </div>
+            <!--===============================================================================================-->
+
+
+
+            <div class="container-login100-form-btn m-t-17">
+                <!--<input type="submit" class="login100-form-btn" value="Iniciar sesión">-->
+                <button class="login100-form-btn">
+                    Crear cuenta
+                </button>
+            </div>
+
+
+
+        }
         <br />
-        <h4><b>Registrarse</b></h4>
-        <div><p><b>Username:</b></p> @Html.TextBoxFor(model => model.Username)</div> @Html.ValidationMessageFor(model => model.Username) <br />
-
-        <div><p><b>Contraseña:</b></p> @Html.PasswordFor(model => model.Contrasena)</div> @Html.ValidationMessageFor(model => model.Contrasena) <br />
-
-        <div><p><b>Confirmar Contraseña:</b></p> @Html.PasswordFor(model => model.Contra2)</div> @Html.ValidationMessageFor(model => model.Contra2) <br />
-
-        <div><p><b>Nombre:</b></p> @Html.TextBoxFor(model => model.Nombre)</div> @Html.ValidationMessageFor(model => model.Nombre) 
         <br />
 
-        <div><p><b>Apellido:</b></p> @Html.TextBoxFor(model => model.Apellido)</div> @Html.ValidationMessageFor(model => model.Apellido) <br />
-
-        <div><p><b>Mail:</b></p> @Html.TextBoxFor(model => model.Mail)</div> @Html.ValidationMessageFor(model => model.Mail) <br />
-
         <br />
-
-        <input type="submit" value="Crear Cuenta" />
-    </center>
-</div>
-}
+</center>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 

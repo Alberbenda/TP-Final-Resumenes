@@ -17,18 +17,28 @@
                 <img src="~/Content/logoresumamos.png" alt="" width="1374" height="293" class="logo" />
             </a>
 
-            <!-- LO MISMO PERO A LA VIEW DE REGISTER -->
+
             @{
-            if (Session["usuario"] != null)
-            {
-            <p>@Session["nombre"]</p>
-            <a href="@Url.Action("Cerrar", "Home")" class="btnheader" style="float: right;" >Cerrar sesión</a>
-            }
-            else
-            {
-            <a href="@Url.Action("CrearCuenta", "Home")" class="btnheader" style="float: right;" >Registrate</a>
-            <a href="@Url.Action("Loguearse", "Home")" class="btnheader" style="float: right;" >Iniciar sesión</a>
-            }
+                if (Session["usuario"] != null)
+                {
+                    <a href="@Url.Action("Cerrar", "Home")" class="btnheader" style="float: right;" href="">Cerrar sesión</a>
+                    <a href="@Url.Action("inserRes", "Home")" class="btnheader" style="float: right;" href=""> Subir Resumen </a>
+                    <a href="@Url.Action("TraerOrt", "Home")" class="btnheader" style="float: right;" href=""> ORT </a>
+                    <a href="@Url.Action("TraerBuber", "Home")" class="btnheader" style="float: right;" href=""> Buber </a>
+                    <a href="@Url.Action("TraerSholem", "Home")" class="btnheader" style="float: right;" href=""> Sholem </a>
+                    <h5 style="float: right;" , padding-right: 3px;>@Session["nombre"]</h5>
+                }
+                else
+                {
+                    <a href="@Url.Action("CrearCuenta", "Home")" class="btnheader" style="float: right;" href="">Registrate</a>
+                    <a href="@Url.Action("Loguearse", "Home")" class="btnheader" style="float: right;" href="">Iniciar sesión</a>
+                    <a href="@Url.Action("TraerOrt", "Home")" class="btnheader" style="float: right;" href=""> ORT </a>
+                    <a href="@Url.Action("TraerBuber", "Home")" class="btnheader" style="float: right;" href=""> Buber </a>
+                    <a href="@Url.Action("TraerSholem", "Home")" class="btnheader" style="float: right;" href=""> Sholem </a>
+                    <h5 style="float: right;" , padding-right: 3px;>@Session["nombre"]</h5>
+                }
+
+               
             }
 
 
